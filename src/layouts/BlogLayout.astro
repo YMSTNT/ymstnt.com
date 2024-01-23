@@ -41,18 +41,18 @@ import { ViewTransitions } from "astro:transitions";
     <article id="blog-body">
       <slot />
     </article>
-  </body>
-  <style>
-    article {
-      margin: 0 auto;
-      max-width: 900px;
-      /* padding: 0 1rem; */
-    }
-
-    @media (max-width: 500px) {
+    <style>
       article {
-        padding: 0 1rem;
+        margin: 0 auto;
+        max-width: 50em;
+        /* padding: 0 1rem; */
       }
-    }
-  </style>
+
+      @media (max-width: 500px) {
+        article {
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </body>
 </html>

@@ -3,24 +3,29 @@ const { nav } = Astro.props;
 ---
 
 <nav>
-  <div id="buttons">
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/blog">Blog</a>
-      </li>
-      <li>
-        <a href="/gepDrive">gepDrive</a>
-      </li>
-    </ul>
+  <div id="navigation">
+    <div id="logo">
+      <h3>ymstnt</h3>
+    </div>
+    <div id="buttons">
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/gepDrive">gepDrive</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <style>
   nav {
-    background-color: var(--mantle);
+    background-color: var(--base);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -33,10 +38,20 @@ const { nav } = Astro.props;
     cursor: pointer;
   }
 
-  #buttons {
+  #navigation {
+    max-width: 900px;
+    background-color: var(--mantle);
+    border: 0.3em solid var(--mantle);
+    margin-top: 1em;
+    padding: 0 1em;
+    border-radius: 0.5em;
     display: flex;
     flex-direction: row;
     align-items: center;
+  }
+
+  #logo {
+    float: left;
   }
 
   ul {
@@ -73,6 +88,9 @@ const { nav } = Astro.props;
       position: relative;
       flex-direction: column;
       max-height: 200px;
+    }
+    #logo {
+      display: none;
     }
   }
 </style>
