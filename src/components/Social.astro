@@ -15,7 +15,7 @@ export type Props = SocialProps | CustomSocialProps;
 const { href, id, classes } = Astro.props as SocialProps & CustomSocialProps;
 ---
 
-<a href={href} rel="me" target="_blank" class={classes}>
+<a href={href} rel="me" class={classes}>
   <slot>
     <slot name="icon" />
   </slot>
@@ -28,7 +28,7 @@ const { href, id, classes } = Astro.props as SocialProps & CustomSocialProps;
   }
 
   a:hover {
-    color: var(--blue)
+    color: var(--blue);
   }
 
   .hidden {
