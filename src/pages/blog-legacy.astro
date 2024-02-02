@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import BlogPost from "../components/BlogPost.astro";
+import CardBlogPost from "../components/CardBlogPost.astro";
 import TagPane from "../components/TagPane.astro";
 
 import "../styles/grid.css";
 
-const allPosts = (await getCollection("posts")) || [];
+const allPosts = (await getCollection("blog")) || [];
 
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
@@ -17,7 +17,7 @@ const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
       <div class="grid">
         <div id="article-list" class="col-65 left">
           {allPosts.map((post) => (
-            <BlogPost
+            <CardBlogPost
               url={`/posts/${post.slug}/`}
               description={post.data.description}
               title={post.data.title}

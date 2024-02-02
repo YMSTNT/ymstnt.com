@@ -1,47 +1,56 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import BlogPost from "../components/BlogPost.astro";
 import Socials from "../components/Socials.astro";
 import CenteredCard from "../components/CenteredCard.astro";
 import DividerLine from "../components/DividerLine.astro";
+
+const blogPosts = (await getCollection("blog")) || [];
+
+const tags = [...new Set(blogPosts.map((post) => post.data.tags).flat())];
 ---
 
 <Layout title="YMSTNT" description="YMSTNT's personal site" nav="/">
-  <CenteredCard classes="h-card" bgcolor="var(--mantle)" maxWidth="30em">
-    <div id="profilepic-container">
-      <img
-        class="u-photo"
-        src="/tnt512.png"
-        id="profilepic"
-        alt="My profile picture"
-        title="Hey there!"
-      />
-    </div>
+  <div class="h-card">
+    <img
+      class="u-photo"
+      src="/tnt512.png"
+      id="profilepic"
+      alt="My profile picture"
+      title="My profile picture"
+    />
     <h1 id="name">YMSTNT</h1>
     <a rel="me" href="https://ymstnt.com/" class="p-name u-url">YMSTNT</a>
-    <div id="general-info">
-      <p id="bio">
-        CS student, aspiring sysadmin & front-end, casual gamer, aquarium
-        lover
-      </p>
-      <span id="pronouns">he/him</span>
-    </div>
-    <Socials class="socials"/>
-    <DividerLine/>
-    <div id="introduction">
-      <p>
-        Hi, I'm YMSTNT. <span
-          id="pronouncination"
-          title="You can also just call me TNT.">/waɪ-ɛm-ɛs-tiː-ɛn-tiː/</span
-        >
-      </p>
-      <p class="p-note">
-        I'm a university student passionate about software development and
-        computer science. In my free time, I enjoy tinkering with technology
-        (mainly Linux and servers), playing casual games, and caring for my
-        aquarium.
-      </p>
-    </div>
-  </CenteredCard>
+    <span id="pronouns">he/him</span>
+    <p class="p-note">
+      I'm a university student passionate about software development and
+      computer science. In my free time, I enjoy tinkering with technology
+      (mainly Linux and servers), playing casual games, and caring for my
+      aquarium.
+    </p>
+  </div>
+  <main>
+    {
+      blogPosts.length > 0 ? (
+        <div id="article-list">
+          {blogPosts
+            .sort((a, b) => +b.data.published - +a.data.published)
+            .map(({ data, slug }) => (
+              <BlogPost
+                url={`/blog/${slug}/`}
+                title={data.title}
+                description={data.description}
+                date={data.published}
+                tags={data.tags}
+              />
+            ))}
+        </div>
+      ) : (
+        <h1 id="none">No posts available.</h1>
+      )
+    }
+  </main>
 </Layout>
 
 <style>
@@ -49,6 +58,27 @@ import DividerLine from "../components/DividerLine.astro";
     overflow-wrap: break-word;
     margin: 0;
     font-size: 1em;
+    display: flex;
+  }
+
+  main {
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    max-width: 64rem;
+    width: 100%;
+    align-self: center;
+    padding: 0 2.5rem;
+  }
+
+  #article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .h-card {
+    display: none;
   }
 
   h1 {
@@ -83,10 +113,6 @@ import DividerLine from "../components/DividerLine.astro";
   #pronouncination {
     color: var(--overlay1);
     font-style: italic;
-  }
-
-  .p-name {
-    display: none;
   }
 
   @media screen and (max-width: 600px) {

@@ -3,72 +3,43 @@ const { nav } = Astro.props;
 ---
 
 <nav>
-  <div id="navigation">
-    <div id="logo">
-      <h3>ymstnt</h3>
-    </div>
-    <div id="buttons">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
-        <li>
-          <a href="/gepDrive">gepDrive</a>
-        </li>
-      </ul>
-    </div>
+  <div>
+    <h3><a href="/" title="Home">YMSTNT</a></h3>
+  </div>
+  <div id="buttons">
+    <a href="/">Home</a>
+    <a href="/blog-legacy">Blog</a>
+    <a href="/gepDrive">gepDrive</a>
   </div>
 </nav>
 
 <style>
   nav {
-    background-color: var(--base);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     max-height: 70px;
-    padding: 0.3em;
+    padding: 0.1em;
+    background-color: var(--mantle);
   }
 
-  h2 {
+  #buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  h3 {
     cursor: pointer;
   }
 
-  #navigation {
-    max-width: 900px;
-    background-color: var(--mantle);
-    border: 0.3em solid var(--mantle);
-    margin-top: 1em;
-    padding: 0 1em;
-    border-radius: 0.5em;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  #logo {
-    float: left;
-  }
-
-  ul {
-    float: right;
-    list-style-type: none;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  li {
-    float: left;
+  h3 > a {
+    text-decoration: none;
   }
 
   a {
     text-decoration: none;
     text-align: center;
-    padding: 0.5em;
     transition: 0.15s ease;
     transition-property: color, text-decoration;
   }
@@ -78,19 +49,14 @@ const { nav } = Astro.props;
     text-decoration: underline;
   }
 
-  #title:hover {
-    color: gray;
-    text-decoration: none;
-  }
-
   @media only screen and (max-width: 600px) {
     nav {
       position: relative;
       flex-direction: column;
       max-height: 200px;
     }
-    #logo {
-      display: none;
+    #buttons {
+      margin-bottom: 1em;
     }
   }
 </style>

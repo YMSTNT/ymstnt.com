@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import BlogPost from "../../components/BlogPost.astro";
+import BlogPost from "../../components/CardBlogPost.astro";
 import TagPane from "../../components/TagPane.astro";
 
 import "../../styles/grid.css";
 
 export async function getStaticPaths() {
-  const allPosts = (await getCollection("posts")) || [];
+  const allPosts = (await getCollection("blog")) || [];
 
   allPosts.sort(
-    (a, b) => Date.parse(b.data.pubDate) - Date.parse(a.data.pubDate)
+    (a, b) => Date.parse(b.data.published) - Date.parse(a.data.published)
   );
 
   const uniqueTags = [
