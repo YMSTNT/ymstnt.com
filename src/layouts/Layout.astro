@@ -8,14 +8,13 @@ import { AUTHOR, ICON, THEME_COLOR } from "../scripts-ssr/constants";
 export interface Props {
   title: string;
   description?: string;
-  nav: string;
 }
 
-const { title, description, nav } = Astro.props;
+const { title, description } = Astro.props;
 import { ViewTransitions } from "astro:transitions";
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hu">
   <head>
     <meta charset="utf-8" />
@@ -36,7 +35,7 @@ import { ViewTransitions } from "astro:transitions";
   </head>
   <body>
     <header>
-      <Navbar title={title} nav={nav} />
+      <Navbar title={title} />
     </header>
     <main>
       <slot />

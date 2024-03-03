@@ -4,7 +4,7 @@ const { nav } = Astro.props;
 
 <nav>
   <div>
-    <h3><a href="/" title="Home">YMSTNT</a></h3>
+    <h1><a href="/" title="Home">YMSTNT</a></h1>
   </div>
   <div id="buttons">
     <a href="/">Home</a>
@@ -21,7 +21,7 @@ const { nav } = Astro.props;
     align-items: center;
     max-height: 70px;
     padding: 0.1em;
-    background-color: var(--mantle);
+    /* background-color: var(--mantle); */
   }
 
   #buttons {
@@ -29,11 +29,11 @@ const { nav } = Astro.props;
     gap: 1rem;
   }
 
-  h3 {
+  h1 {
     cursor: pointer;
   }
 
-  h3 > a {
+  h1 > a {
     text-decoration: none;
   }
 
@@ -41,11 +41,11 @@ const { nav } = Astro.props;
     text-decoration: none;
     text-align: center;
     transition: 0.15s ease;
-    transition-property: color, text-decoration;
+    transition-property: color text-decoration;
   }
 
   a:hover {
-    color: var(--blue);
+    color: var(--link-hover);
     text-decoration: underline;
   }
 

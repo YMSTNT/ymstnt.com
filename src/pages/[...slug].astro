@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CenteredBody from "../components/CenteredBody.astro";
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const otherEntries = (await getCollection("other")) || [];
+  return otherEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const dateOptions: object = {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const formattedPublishDate = new Date(entry.data.published).toLocaleDateString(
+  "en-US",
+  dateOptions
+);
+
+const formattedUpdatedDate = new Date(entry.data.updated).toLocaleDateString(
+  "en-US",
+  dateOptions
+);
+---
+
+<Layout title={entry.data.title} description={entry.data.description}>
+  <CenteredBody>
+    <main>
+      {
+        (entry.data.published || entry.data.updated) && (
+          <div id="date">
+            {entry.data.published && (
+              <span>Published at {formattedPublishDate}</span>
+            )}
+            {entry.data.updated && (
+              <span>Updated at {formattedUpdatedDate}</span>
+            )}
+          </div>
+        )
+      }
+      <h1 id="title">{entry.data.title}</h1>
+      <Content />
+    </main>
+  </CenteredBody>
+</Layout>
+
+<style>
+  #title {
+    margin: 0 auto 0.2em;
+    font-size: 2em;
+  }
+  #date {
+    color: var(--overlay0);
+    font-size: smaller;
+  }
+</style>

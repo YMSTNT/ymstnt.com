@@ -1,5 +1,5 @@
 ---
-import BlogLayout from "./BlogLayout.astro";
+import Layout from "./Layout.astro";
 import DividerLine from "../components/DividerLine.astro";
 import Tag from "../components/Tag.astro";
 
@@ -17,7 +17,7 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
 );
 ---
 
-<BlogLayout
+<Layout
   title={frontmatter.title}
   description={frontmatter.description}
   nav="/blog"
@@ -53,7 +53,7 @@ const formattedPublishDate = new Date(frontmatter.pubDate).toLocaleDateString(
   <div id="article">
     <slot />
   </div>
-</BlogLayout>
+</Layout>
 
 <style>
   h1 {

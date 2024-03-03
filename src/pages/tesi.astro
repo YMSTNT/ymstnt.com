@@ -6,7 +6,6 @@ import CenteredCardContainer from "../components/CenteredCardContainer.astro";
 <Layout
   title="YMSTNT | Tesi"
   description="Tesi a legrosszabb tantárgy, mennyi van még hátra?"
-  nav="/"
 >
   <CenteredCardContainer maxWidth="500px">
     <div id="tesi">
@@ -15,22 +14,22 @@ import CenteredCardContainer from "../components/CenteredCardContainer.astro";
     </div>
     <div id="in-memoriam">
       <h3 id="in-memoriam-title">In Memoriam</h3>
-        <img
-          src="/doboz.png"
-          id="dobozimg"
-          alt="Törött műanyag doboz címkével az oldalán, a teteje kicsit le van csúszva és a kitört darabok mellette feküdnek"
-        />
-        <h3 id="dobozname">Telefonos doboz</h3>
-        <p class="small" id="livedate">2022.01.24 - 2023.03.24.</p>
-        <p class="small">Nem élte túl az utolsó 4 hetet 😢</p>
-      </div>
+      <img
+        src="/doboz.png"
+        id="dobozimg"
+        alt="Törött műanyag doboz címkével az oldalán, a teteje kicsit le van csúszva és a kitört darabok mellette feküdnek"
+      />
+      <h3 id="dobozname">Telefonos doboz</h3>
+      <p class="small" id="livedate">2022.01.24 - 2023.03.24.</p>
+      <p class="small">Nem élte túl az utolsó 4 hetet 😢</p>
+    </div>
   </CenteredCardContainer>
 </Layout>
 
 <style>
   @font-face {
-    font-family: 'Imperial Script';
-    src: url('/fonts/ImperialScript-Regular.woff2') format('woff2');
+    font-family: "Imperial Script";
+    src: url("/fonts/ImperialScript-Regular.woff2") format("woff2");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -45,7 +44,8 @@ import CenteredCardContainer from "../components/CenteredCardContainer.astro";
     margin-bottom: 2em;
   }
 
-  #tesi, #in-memoriam {
+  #tesi,
+  #in-memoriam {
     justify-content: center;
     align-items: center;
     background: var(--mantle);

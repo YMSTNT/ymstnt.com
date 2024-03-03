@@ -23,9 +23,29 @@ html {
 :root {
   color-scheme: dark;
 
+  --grayscale-50: rgb(248, 248, 248);
+  --grayscale-100: rgb(226, 226, 226);
+  --grayscale-200: rgb(205, 205, 205);
+  --grayscale-300: rgb(185, 185, 185);
+  --grayscale-400: rgb(165, 165, 165);
+  --grayscale-500: rgb(146, 146, 146);
+  --grayscale-600: rgb(127, 127, 127);
+  --grayscale-700: rgb(108, 108, 108);
+  --grayscale-800: rgb(87, 87, 87);
+  --grayscale-900: rgb(65, 65, 65);
+  --grayscale-950: rgb(34, 34, 34);
+
+  --bg: var(--grayscale-950);
+  --text: var(--grayscale-50);
+  --card-border: var(--grayscale-400);
+  --subtext0: var(--grayscale-200);
+  --subtext1: var(--grayscale-300);
+  --subtext0-inverted: var(--grayscale-900);
+  --link-hover: var(--grayscale-600);
+  /* 
   --base: #1e1e2e;
   --mantle: #181825;
-  --crust: #11111b;
+  --crust: #11111b; */
 
   --surface0: #313244;
   --surface1: #45475a;
@@ -35,9 +55,9 @@ html {
   --overlay1: #7f849c;
   --overlay2: #9399b2;
 
-  --text: #cdd6f4;
-  --subtext0: #a6adc8;
-  --subtext1: #bac2de;
+  /* --text: #cdd6f4; */
+  /* --subtext0: #a6adc8;
+  --subtext1: #bac2de; */
 
   --blue: #89b4fa;
   --latte-blue: #1e66f5;
@@ -85,7 +105,7 @@ html {
 body {
   --horizontal-margin: 20%;
 
-  background-color: var(--base);
+  background-color: var(--bg);
   color: var(--text);
 
   margin: auto;

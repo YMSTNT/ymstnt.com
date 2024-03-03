@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import CenteredCard from "../components/CenteredCard.astro";
 ---
 
-<Layout title="404 Not Found" description="Are you lost?" nav="/">
+<Layout title="404 Not Found" description="Are you lost?">
   <CenteredCard maxWidth="30em" bgcolor="var(--mantle)">
     <h1>Oh no!</h1>
     <h3>That page was not found. (404)</h3>
@@ -37,7 +37,7 @@ import CenteredCard from "../components/CenteredCard.astro";
     cursor: pointer;
     position: relative;
     transition: 0.15s ease;
-    transition-property: color,
+    transition-property: color;
   }
 
   #homebutton-container:hover {
