@@ -1,0 +1,78 @@
+---
+import "../styles/global.css";
+---
+
+<div class="nav-container">
+  <nav>
+    <div>
+      <h1><a href="/" title="Home">YMSTNT</a></h1>
+    </div>
+    <div class="buttons">
+      <a href="/now">Now</a>
+      <a href="/about">About</a>
+      <a href="/gepDrive">gepDrive</a>
+      <a href="/uni">Uni</a>
+    </div>
+  </nav>
+</div>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 70px;
+    #max-width: 50%;
+    margin: 1em auto;
+    padding: 0.5em;
+    border: 1em hidden;
+    border-radius: 1em;
+    background-color: gray;
+  }
+
+  div {
+    margin
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  h1 {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.15 ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  h1 a:hover {
+    text-decoration: none;
+  }
+
+  div {
+    margin: 0;
+    padding: 0;
+  }
+
+  @media only screen and (max-width: 600px) {
+    nav {
+      position: relative;
+      flex-direction: column;
+      max-height: 300px;
+      max-width: unset;
+    }
+    #buttons {
+      margin-bottom: 1em;
+    }
+  }
+</style>

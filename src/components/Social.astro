@@ -1,0 +1,30 @@
+---
+interface SocialProps {
+  href: string;
+  title: string;
+  hidden?: boolean;
+}
+
+export type Props = SocialProps;
+
+const { href, title, hidden } = Astro.props as SocialProps;
+---
+
+<a href={href} rel="me" title={title} class:list={[{ hidden: hidden }]}>
+  <slot>
+    <slot name="icon" />
+  </slot>
+</a>
+
+<style>
+  a {
+    transition: color 0.15 ease;
+  }
+
+  a:hover {
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>

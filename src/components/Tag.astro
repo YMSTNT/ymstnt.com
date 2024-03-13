@@ -1,0 +1,14 @@
+---
+import "../styles/global.css";
+
+const { isDisplayOnly } = Astro.props;
+---
+
+<tag class:list={[{ displayOnly: isDisplayOnly }]}>
+  <slot />
+</tag>
+
+<style>
+  tag {
+  }
+</style>
