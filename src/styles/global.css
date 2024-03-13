@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind variants;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/fonts/Inter-roman.var.woff2?v=3.19') format('woff2');
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  overflow-y: overlay;
+  height: -webkit-fill-available;
+  height: stretch;
+
+  font-family: "Inter var", system-ui, sans-serif;
+}
+
+body {
+  --horizontal-margin: 20%;
+
+  margin: auto;
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    --horizontal-margin: 5%;
+  }
+}

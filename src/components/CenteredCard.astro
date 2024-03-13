@@ -1,0 +1,67 @@
+---
+interface SettingProps {
+  bgColor?: string;
+  extraClass?: string;
+  maxWidth: string;
+}
+
+export type Props = SettingProps;
+
+const { bgColor, extraClass, maxWidth } = Astro.props as SettingProps;
+---
+
+<div id="card-container">
+  <div id="card" class:list={[{ extraClass }]}>
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{ bgColor, maxWidth }}>
+  #card {
+    background-color: var(--bgColor);
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: var(--maxWidth);
+    border-radius: 1em;
+    margin: 2em auto;
+    padding: 2em;
+  }
+
+  @media screen and (max-width: 600px) {
+    #card {
+      margin: 2em;
+      min-width: 15em;
+      position: unset;
+      left: unset;
+      top: unset;
+      transform: unset;
+    }
+    #card-container {
+      padding: 2em 0;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    #card {
+      margin: 1em;
+    }
+    #card-container {
+      padding: 1em 0;
+    }
+  }
+
+  @media (max-height: 700px) {
+    #card {
+      position: unset;
+      left: unset;
+      top: unset;
+      transform: unset;
+    }
+  }
+</style>
